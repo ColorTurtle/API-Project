@@ -54,14 +54,14 @@ var HomePageView = Backbone.View.extend({
 
 
 var ListView = Backbone.View.extend({
-	tagName: 'a',
+	// tagName: 'a',
 
 	className: 'etsy-item',
 
 	initialize: function(){
-		this.setHref();
+		// this.setHref();
 		this.render(),
-		$('.item-list').html( this.el )
+		$('.item-list').append( this.el )
 	}, 
 
 	renderedTemplate: _.template($('#etsy-item-template').text()),
@@ -70,11 +70,11 @@ var ListView = Backbone.View.extend({
 		this.$el.html(this.renderedTemplate(this.model));
 	},
 
-	setHref: function(){
-		console.log('setHref has been invoked')
-		var id = this.model.get('listing_id');
-		var link = '#/items/' + id;
-		this.$el.attr({href: link});
-	}
+	// setHref: function(){
+	// 	console.log('setHref has been invoked')
+	// 	var id = this.model.get('listing_id');
+	// 	var link = '#/items/' + id;
+	// 	this.$el.attr({href: link});
+	// }
 
 });

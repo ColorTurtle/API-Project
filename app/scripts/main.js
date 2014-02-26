@@ -6,31 +6,30 @@ $(document).ready(function(){
 
 });
 
-$.ajax({
+// $.ajax({
 
-	dataType: 'jsonp',
+	// dataType: 'jsonp',
 
-  url:'https://openapi.etsy.com/v2/listings/active.js?callback=etsyResults&fields=title,price,description,listing_id,url&includes=Images&api_key=6ytsbcyaiiafvg560dnhbd8k',
+ //  url:'https://openapi.etsy.com/v2/listings/active.js?callback=etsyResults&fields=title,price,description,listing_id,url&includes=Images&api_key=6ytsbcyaiiafvg560dnhbd8k',
 
-	data: '',
+	// data: ''
 
-	success: function(queryResults){
+	// success: function(queryResults){
 
-		productItems = new EtsyItemsCollection(queryResults.results);
-		var itemCount = 0;
+	// 	productItems = new EtsyItemsCollection(queryResults.results);
+	// 	var itemCount = 0;
 
-		productItems.each(function(item){
-			new ListView({model: item});
-		});
+	// 	productItems.each(function(item){
+	// 		new ListView({model: item});
+	// 	});
 
-	},
+	// },
 
-	error: function (msg) {
-    console.log('Uh-oh. Someting went wrong:', msg.statusText);
-  }
+	// error: function (msg) {
+ //    console.log('Uh-oh. Someting went wrong:', msg.statusText);
+ //  }
 
-
-});
+// });
 
 $('.js-homepage-link').on('click', function(){
 	$(this).addClass('active');
