@@ -6,21 +6,43 @@ $(document).ready(function(){
 
 });
 
-// $.ajax({
+$.ajax({
 
-// 	datatype: 'jsonp',
+	dataType: 'jsonp',
 
-//   // url: "https://openapi.etsy.com/v2/listings/active?q=lights&api_key=6ytsbcyaiiafvg560dnhbd8k",
-  
-// 	success: function(){
-// 		productItems = new EtsyItemsCollection();
-// 		productItems.each(function(){
-// 			new ListView();
-// 		}),
+  url:'https://openapi.etsy.com/v2/listings/active.js?callback=etsyResults&fields=title,price,description,listing_id,url&includes=Images&api_key=6ytsbcyaiiafvg560dnhbd8k',
 
-// 		Backbone.history.start()
-// 	},
+	data: '',
+
+	success: function(queryResults){
+
+		productItems = new EtsyItemsCollection(queryResults.results);
+		var itemCount = 0;
+
+		productItems.each(function(item){
+			new ListView({model: item});
+		});
+
+	},
+
+	error: function (msg) {
+    console.log('Uh-oh. Someting went wrong:', msg.statusText);
+  }
 
 
-// });
+});
 
+$('.js-homepage-link').on('click', function(){
+	$(this).addClass('active');
+	$(this).siblings().removeClass('active')
+})
+
+$('.js-aboutpage-link').on('click', function(){
+	$(this).addClass('active');
+	$(this).siblings().removeClass('active')
+})
+
+$('.js-contactpage-link').on('click', function(){
+	$(this).addClass('active');
+	$(this).siblings().removeClass('active')
+})

@@ -37,7 +37,7 @@ body {
 }
 
 .page-copy {
-    border: 1px solid gray;
+    
 }
 
 .app-intro {
@@ -50,6 +50,8 @@ body {
 
 .item-list {
     border: 1px solid gray;
+    height: 500px;
+    overflow-y: scroll;
 
     .etsy-item {
         border: 1px solid green;
