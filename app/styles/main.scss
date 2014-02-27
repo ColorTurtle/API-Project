@@ -14,6 +14,7 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     color: #0F697F;
+    background-color: rgba(240, 247, 248, 0.64);
 }
 
 
@@ -27,7 +28,7 @@ body {
 
 /* Custom page header */
 .header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #B0B5C0;
 
     /* Make the masthead heading the same height as the navigation */
     h3 {
@@ -36,6 +37,18 @@ body {
         line-height: 40px;
         padding-bottom: 19px;
     }
+
+    .nav a {
+        color: #AD9957;
+    }
+
+    .active {
+        // background-color: #AD9957;
+    }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #AD9957;
 }
 
 .text-muted {
@@ -52,7 +65,8 @@ body {
     color: white;
 
     &:hover {
-        background-color: #0F697F;
+        background-color: #AD9957;
+        // background-color: #0F697F;
         color: white;
     }
 }
@@ -61,8 +75,13 @@ body {
     
 }
 
+.top-row {
+    background-color: none;
+    border-bottom: 1px solid #B0B5C0;
+}
+
 .app-intro {
-    border: 1px solid gray;
+    padding-bottom: 10px;
 }
 
 .priceyword-chart {
@@ -70,13 +89,14 @@ body {
 }
 
 .item-list {
-    border: 1px solid gray;
+    // border: 1px solid gray;
     height: 500px;
     overflow-y: scroll;
+    background-color: none;
 
     .list-item {
-    border-bottom: 1px solid green;
-        
+    border-bottom: 1px solid #0F697F;
+
         
     }
 
@@ -84,7 +104,7 @@ body {
     color: #32707F;
 
     &:hover {
-        color: #0F697F;
+        color: #AD9957;
         text-decoration: none;
     }
 }
@@ -92,9 +112,10 @@ body {
 }
 
 .spotlight-box {
-    border: 1px solid gray;
+    // border: 1px solid gray;
     height: 500px;
     overflow-y: scroll;
+    background-color: none;
     .item-mainview {
 
         img {
@@ -111,7 +132,7 @@ body {
 .footer {
     padding-top: 19px;
     color: #777;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #B0B5C0;
 }
 
 .container-narrow > hr {
