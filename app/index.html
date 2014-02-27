@@ -30,7 +30,7 @@
         <div class="container">
             <div class="header row">
                 <ul class="nav nav-pills pull-right">
-                    <li class="js-homepage-link active"><a href="#home">Home</a></li>
+                    <li class="js-homepage-link"><a href="#">Home</a></li>
                     <li class="js-aboutpage-link"><a href="#about">About</a></li>
                     <li class="js-contactpage-link"><a href="#contact">Contact</a></li>
                 </ul>
@@ -40,9 +40,13 @@
             </div>
                 <div class="row">
                     <div class="app-intro col-md-4">
-                        <p>Which descriptor words command  higher prices?</p>
+                        <h3>Shop the Pricey Words</h3>
+                        <a href="#shops/light%20fixture"type="button" class="btn btn-shop btn-lg btn-block">Light Fixtures</a>
+                        <a href="#shops/table%20lamp" type="button" class="btn btn-shop btn-lg btn-block">Table Lamps</a>
+                        <a href="#shops/coffee%20table" type="button" class="btn btn-shop btn-lg btn-block">Coffee Tables</a>
                         <input placeholder="item">
                         <input placeholder="keywords">
+
                     </div>
                     <div class="priceyword-chart col-md-8">Chart here (hopefully)</div>
                 </div>
@@ -50,7 +54,7 @@
                     <div class="item-list js-item-list col-md-4">
                        
                     </div>
-                    <div class="spotlight-box col-md-8">
+                    <div class="spotlight-box js-spotlight-box col-md-8">
                         
                     </div>
                 </div>
@@ -63,12 +67,16 @@
 
         <!-- Begin Template for ListView -->
         <script type="text/template" id="etsy-item-template">
-            <div>
-                <div>        
+            <div class="list-item">      
                     <h3 class="title text-left"><%= this.model.get('title') %></h3>
-                    <h4 class="price text-muted text-right"><%= this.model.get('price') %></h4>
-                </div>
+                    <h4 class="price text-muted text-right">$<%= this.model.get('price') %></h4>
             </div>
+        </script>
+        <script type="text/template" id="etsy-MainView-template">       
+                    <h3 class="title text-left"><%= this.model.get('title') %></h3>
+                    <h4 class="price text-muted text-right">$<%= this.model.get('price') %></h4>
+                    <img class="col-xs-4" src="<%=this.model.get('Images')[0].url_fullxfull%>">
+                    <p class="description small col-xs-12 text-left"><%= this.model.get('description') %></p>
         </script>
         <script type="text/template" id="about-page-template">
             <div>

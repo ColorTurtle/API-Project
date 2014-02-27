@@ -54,12 +54,13 @@ var HomePageView = Backbone.View.extend({
 
 
 var ListView = Backbone.View.extend({
-	// tagName: 'a',
+	tagName: 'a',
 
 	className: 'etsy-item',
 
 	initialize: function(){
-		// this.setHref();
+		// $('.item-list').html('');
+		this.setHref();
 		this.render(),
 		$('.item-list').append( this.el )
 	}, 
@@ -70,11 +71,28 @@ var ListView = Backbone.View.extend({
 		this.$el.html(this.renderedTemplate(this.model));
 	},
 
-	// setHref: function(){
-	// 	console.log('setHref has been invoked')
-	// 	var id = this.model.get('listing_id');
-	// 	var link = '#/items/' + id;
-	// 	this.$el.attr({href: link});
-	// }
+	setHref: function(){
+		console.log('setHref has been invoked')
+		var id = this.model.get('listing_id');
+		var link = '#/items/' + id;
+		this.$el.attr({href: link});
+	}
 
+});
+
+var MainView = Backbone.View.extend({
+	className: "item-mainview",
+
+	initialize: function(){
+		this.render();
+		$('.js-spotlight-box').html('');
+		$('.js-spotlight-box').append( this.el )
+
+	}, 
+
+	renderedTemplate: _.template($('#etsy-MainView-template').text()),
+
+	render: function(){
+		this.$el.html(this.renderedTemplate(this.model))
+	}
 });

@@ -13,7 +13,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    color: #0F697F;
 }
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -36,6 +38,25 @@ body {
     }
 }
 
+.text-muted {
+    color: #96CBD8;
+
+    &:hover {
+        color: #5EAEC2;
+    }
+
+}
+
+.btn-shop {
+    background-color: #32707F;
+    color: white;
+
+    &:hover {
+        background-color: #0F697F;
+        color: white;
+    }
+}
+
 .page-copy {
     
 }
@@ -53,13 +74,37 @@ body {
     height: 500px;
     overflow-y: scroll;
 
-    .etsy-item {
-        border: 1px solid green;
+    .list-item {
+    border-bottom: 1px solid green;
+        
+        
     }
+
+    a {
+    color: #32707F;
+
+    &:hover {
+        color: #0F697F;
+        text-decoration: none;
+    }
+}
+
 }
 
 .spotlight-box {
     border: 1px solid gray;
+    height: 500px;
+    overflow-y: scroll;
+    .item-mainview {
+
+        img {
+            width: 100%;
+            padding: 0px;
+        }
+        p {
+            padding-top: 10px;
+        }
+    }
 }
 
 /* Custom page footer */
