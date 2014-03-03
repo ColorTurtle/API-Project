@@ -5,6 +5,7 @@ var MainRouter = Backbone.Router.extend({
 		"contact"					: "contactPage",
 		"shops"						: "showShops",
 		"shops/:keyword"	: "showShops",
+		"shops/:keyword"	: "pushData",
 		"items/:itemId" 	: "mainView"
 // show is an eample from class
 	},
@@ -19,6 +20,7 @@ var MainRouter = Backbone.Router.extend({
 				new ListView({model: item})
 		})
 
+		console.log(this.items)
 	},
 
 	homePage: function(){
@@ -42,15 +44,38 @@ var MainRouter = Backbone.Router.extend({
 	showShops: function(keyword){
 		console.log('showShops is being called by the router')
 		$('.item-list').html('');
+		$('.js-spotlight-box').html('');
+		// $('.item-list').`html(<img src="images/ajax-loader.gif">);
 		if (keyword) {
 			this.items.url = "https://api.etsy.com/v2/listings/active.js?keywords="+ keyword +"&includes=Images&api_key=kr9rjq7dc9c24jv6fccq2hus&callback=?"			
 		}
 		this.items.fetch();
-		// cant loop over items here b/c js will
-		// try to loop before the items are even returned
 
+		console.log('Should have sent some data to tiny server')
 	},
 
+	pushData: function(keyword){
+		if (keyword) {
+			this.items.url = "https://api.etsy.com/v2/listings/active.js?keywords="+ keyword +"&includes=Images&api_key=kr9rjq7dc9c24jv6fccq2hus&callback=?"			
+		}
+		this.items.fetch();
+
+		var rawData = this.items;
+		console.log(rawData)
+
+		savedData = new PricesCollection(rawData);
+
+		// var pricesArray = savedData.map(function(){
+		// 	return {listing_id: this.items.get(listing_id),
+		// 					price: this.items.get(price)
+		// 					}
+		// });
+
+		// console.log(pricesArray);
+
+		// savedData.save();
+		
+	},
 
 	mainView: function(itemId){
 		console.log('Should be seeing the larger view', this.items)
@@ -67,17 +92,4 @@ var MainRouter = Backbone.Router.extend({
 
 
 });
-// ****Example from lecture
-// var ItemView = Backbone.View.extend({
-
-// 	initialize: function(){
-// 		$('.item-list').append(this.el);
-
-// 		this.render()
-// 	},
-
-// 	render: function(){
-// 		this.$el.html(this.model.get('shop_name'))
-// 	}
-// })
 

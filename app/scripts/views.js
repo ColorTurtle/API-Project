@@ -82,15 +82,14 @@ var ListView = Backbone.View.extend({
 
 var MainView = Backbone.View.extend({
 	className: "item-mainview",
+	
+	renderedTemplate: _.template($('#etsy-MainView-template').text()),
 
 	initialize: function(){
 		this.render();
-		$('.js-spotlight-box').html('');
-		$('.js-spotlight-box').append( this.el )
+		$('.js-spotlight-box').html( this.el )
 
 	}, 
-
-	renderedTemplate: _.template($('#etsy-MainView-template').text()),
 
 	render: function(){
 		this.$el.html(this.renderedTemplate(this.model))

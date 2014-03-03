@@ -9,11 +9,20 @@ var EtsyItemsCollection = Backbone.Collection.extend({
 // Be sure to append '=?' to the query string to signal that you are using jsonp
 
 	url: 'https://openapi.etsy.com/v2/listings/active.js?api_key=6ytsbcyaiiafvg560dnhbd8k&fields=title,price,description,listing_id,url&includes=Images&callback=?',   
-																									// ?callback=etsyResults&fields=title,price,description,listing_id,url&includes=Images&api_key=6ytsbcyaiiafvg560dnhbd8k=?',
 		  
 	parse: function(response) {
     return response.results;
   }
+
 });
 
-var PageView = Backbone.Model.extend({})
+// Create model for prices to be pushed to server
+var EtsyPrices = Backbone.Model.extend({})
+
+var PricesCollection = Backbone.Collection.extend({
+	model: EtsyPrices,
+
+	url: 'http://tiny-pizza-server.herokuapp.com/collections/pricey-words',
+
+
+});
